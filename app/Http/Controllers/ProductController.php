@@ -14,6 +14,8 @@ class ProductController extends Controller
     public function index()
     {
         //
+        error_log('Displaying the Products home');
+        return view('products');
     }
 
     /**
