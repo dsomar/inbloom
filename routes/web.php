@@ -22,8 +22,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 // Route::get('/products', 'ProductController@index')->name('products');
 Route::resource('products', 'ProductController');
 
-Route::resource('inventory', 'StockItemsController');
+Route::resource('inventory', 'StockItemController');
 
-Route::resource('contacts', 'ContactsController');
+Route::resource('contacts', 'ContactController');
 
 Route::resource('ledger', 'LedgerController');

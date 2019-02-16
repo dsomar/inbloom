@@ -35,6 +35,15 @@
         <div class="col-md-12 pt-3">
             <h1>Inventory</h1>
             <h2>Inventory should appear here</h2>
+            <table border="1" width="100%">
+                <tr>
+                    <td>SKU</td>
+                    <td>Brand & Description</td>
+                    <td>Price</td>
+                    <td>Category</td>
+                    <td>Markdown Code</td>
+                </tr>
+            </table>
 
         </div>
 @endsection

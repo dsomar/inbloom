@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Contacts extends Model
+class LedgerItem extends Model
 {
     //
 }
