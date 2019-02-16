@@ -19,21 +19,14 @@ class CreateProductsTable extends Migration
             $table->string('description')->comment('Zoom Stefan Janoski Pr Qs Tie Dye');
             $table->string('brand')->comment('Nike');
             $table->string('category')->comment('Footwear');
-            $table->integer('id_variant')->comment('The ID of the variant which would store size 7 or 40cm');
         });
 
         Schema::create('variants', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
             $table->string('size')->comment('Expects a size such as 7 or 40cm');
-        });
-
-        // Update the id_variant field to be a foreign key
-        Schema::table('products', function(Blueprint $table)
-        {
-            $table->foreign('id_variant')
-                    ->references('id')
-                    ->on('variants');
+            $table->float('quantity');
+            $table->string('manufacturer_sku')->comment('The barcode of the box for a particular shoe or hat');
         });
 
         // Schema::table('variants', function(Blueprint $table)

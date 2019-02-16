@@ -1,10 +1,12 @@
 @extends('layouts.app')
 
+@section('title', 'InBloom Cloud')
+
 @section('content')
         <div class="container-fluid flex-center position-ref full-height">
             <div class="content">
                 <h1 class="title m-b-md">
-                    Laravel
+                    Dashboard
                 </h1>
 
                 <div class="links">
