@@ -15,7 +15,12 @@ class ProductController extends Controller
     {
         //
         error_log('Displaying the Products home');
-        return view('products');
+        $allproducts = \App\Product::paginate(100);
+
+        // Returns a JSON dump of all the products in the DB
+        // return $allproducts; 
+
+        return view('products', compact('allproducts'));
     }
 
     /**
@@ -35,7 +40,15 @@ class ProductController extends Controller
      */
     public function store()
     {
-        //
+        error_log('Storing a new product');
+        $product = new \App\Product();
+
+        $product->brand = request('brand');
+        $product->description = request('description');
+        $product->category = request('category');
+
+        $product->save();
+        return redirect('/products');
     }
 
     /**

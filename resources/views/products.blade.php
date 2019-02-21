@@ -8,50 +8,28 @@
         <div class="col-md-10">
             <div class="card">
                 <div class="card-header">Add A Product</div>
-                <form class="col-md-8 pt-3" >
+                <form class="col-md-8 pt-3" method="POST" action="/products">
+
+                {{ csrf_field() }}
+
                 <div class="form-row">
                     <div class="form-group col-md-4">
                     <label for="inputBrand">Brand</label>
-                    <input type="text" class="form-control" id="inputBrand" placeholder="Nike">
+                    <input type="text" class="form-control" id="inputBrand" placeholder="Nike" name="brand">
                     </div>
                     <div class="form-group col-md-6">
                     <label for="inputDescription">Description / Colorway</label>
-                    <input type="text" class="form-control" id="inputDescription" placeholder="Password">
+                    <input type="text" class="form-control" id="inputDescription" placeholder="" name="description">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="inputAddress">Category</label>
-                    <input type="text" class="form-control" id="Category" placeholder="1234 Main St">
+                    <input type="text" class="form-control" id="Category" placeholder="1234 Main St" name="category">
                 </div>
                 <div class="form-group">
                     <label for="inputAddress2">Address 2</label>
                     <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
                 </div>
-                <!-- <div class="form-row">
-                    <div class="form-group col-md-3">
-                    <label for="inputCity">City</label>
-                    <input type="text" class="form-control" id="inputCity">
-                    </div>
-                    <div class="form-group col-md-3">
-                    <label for="inputState">State</label>
-                    <select id="inputState" class="form-control">
-                        <option selected>Choose...</option>
-                        <option>...</option>
-                    </select>
-                    </div>
-                    <div class="form-group col-md-2">
-                    <label for="inputZip">Zip</label>
-                    <input type="text" class="form-control" id="inputZip">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="gridCheck">
-                    <label class="form-check-label" for="gridCheck">
-                        Check me out
-                    </label>
-                    </div>
-                </div> -->
                 <button type="submit" class="btn btn-primary">Create Product</button>
                 </form>
 
@@ -69,5 +47,31 @@
             <h1>Products</h1>
             <h2>Products should appear here</h2>
 
+            {{ $allproducts->links() }}
+
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                    <th scope="col">Image</th>
+                    <th scope="col">SKU</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Category</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($allproducts as $product)
+                    <tr>
+                        <th scope="row"><img src="https://via.placeholder.com/100x80"></th>
+                        <td>{{ $product->id }}</td>
+                        <td><strong>{{ $product->brand }}</strong> {{ $product->description }}<br>
+                            @php echo uniqid(); @endphp
+                        </td>
+                        <td>@php echo rand(95, 1005); @endphp.00</td>
+                        <td>{{ $product->category }}</td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
         </div>
 @endsection

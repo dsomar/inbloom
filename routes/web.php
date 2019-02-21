@@ -21,6 +21,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 // Route::get('/products', 'ProductController@index')->name('products');
 Route::resource('products', 'ProductController');
+Route::post('/products', 'ProductController@store');
+
 
 Route::resource('inventory', 'StockItemController');
 
